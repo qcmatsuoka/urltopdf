@@ -57,6 +57,11 @@ DIR=`dirname ${OUTPUT}`
 no=0
 max=`expr $# - 1`
 
+if [ ! `echo "${OUTPUT}" |grep ".pdf"` ]; then
+	OUTPUT="output.pdf"
+	max=`expr ${max} + 1`
+fi
+
 for arg in $@
 do
 	if [ ${no} -ne ${max} ]; then
